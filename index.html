@@ -3,276 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mark Herren Nuega | Resume</title>
+<title>Mark Herren D. Nuega | Senior Electronics & Electrical Technician</title>
+<meta name="description" content="Resume of Mark Herren D. Nuega — Senior Electronics & Electrical Technician, ELV / Security & Surveillance Specialist.">
 
 <style>
-
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ================= DESIGN TOKENS ================= */
+:root {
+  --green-900: #1c4a28;
+  --green-700: #2f6f3e;
+  --green-600: #357a46;
+  --green-500: #3f8f55;
+  --accent:    #7cc242;
+  --ink:       #2b2f33;
+  --muted:     #667085;
+  --line:      #e6e9ec;
+  --paper:     #ffffff;
+  --bg:        #e8ecea;
+  --radius:    14px;
+  --shadow:    0 18px 50px rgba(20,50,30,0.18);
 }
 
-/* ================= PAGE ================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #e9ecef;
-  color: #333;
+  font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 50% -10%, #f2f6f3 0%, var(--bg) 60%) fixed;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: 1.55;
+  padding: 32px 16px;
 }
 
 /* ================= DOWNLOAD BUTTON ================= */
 .download-btn {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 18px;
-  background: #2f6f3e;
+  top: 22px;
+  right: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: linear-gradient(135deg, var(--green-700), var(--green-500));
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  box-shadow: 0 8px 20px rgba(47,111,62,0.35);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
   z-index: 999;
 }
+.download-btn::before { content: "\2193"; font-weight: 700; }
+.download-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(47,111,62,0.45); filter: brightness(1.05); }
+.download-btn:active { transform: translateY(0); }
 
-/* ================= A4 LAYOUT ================= */
+/* ================= RESUME CARD ================= */
 .resume {
-  width: 210mm;
-  height: 297mm;
-  margin: 20px auto;
-  background: #e9ecef;
-  display: grid;
-  grid-template-columns: 34% 66%;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 210mm;
+  margin: 0 auto;
+  background: var(--paper);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
 }
 
-/* ================= SIDEBAR ================= */
-.sidebar {
-  background: linear-gradient(180deg, #2f6f3e, #3f8f55);
-  color: white;
-  padding: 40px 30px;
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 46px;
+  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 55%, var(--green-500) 100%);
+  color: #fff;
 }
-
+.header-text { flex: 1; min-width: 0; }
+.name {
+  font-size: clamp(28px, 4.6vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+}
+.role {
+  margin-top: 8px;
+  font-size: clamp(13px, 1.8vw, 15px);
+  font-weight: 600;
+  color: #d9f2c9;
+  letter-spacing: .2px;
+}
+.header-meta {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+}
+.header-meta .sep { color: var(--accent); padding: 0 6px; }
+.header-meta a { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); }
 .profile-photo {
-  width: 160px;
-  height: 160px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid white;
-  display: block;
-  margin: 0 auto 25px;
+  border: 4px solid rgba(255,255,255,0.9);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+  flex-shrink: 0;
 }
 
-.sidebar h3 {
-  font-size: 15px;
-  margin: 20px 0 10px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+/* ================= BODY ================= */
+.main { padding: 34px 46px 48px; }
 
-.sidebar p,
-.sidebar li {
-  font-size: 13px;
-  line-height: 1.6;
-  margin-bottom: 8px;
-}
+.section { margin-top: 30px; }
+.section:first-child { margin-top: 0; }
 
-.sidebar ul {
-  padding-left: 18px;
-}
-
-/* ================= MAIN CONTENT ================= */
-.main {
-  padding: 45px;
-}
-
-.name {
-  font-size: 46px;
-  font-weight: bold;
-  color: #2f6f3e;
-  line-height: 1.1;
-}
-
-.licenses {
-  font-size: 13px;
-  margin-top: 8px;
-  color: #666;
-}
-
-.contact {
-  margin: 25px 0 35px;
-}
-
-.contact p {
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-
-/* ================= SECTION TITLES ================= */
 .section-title {
-  margin: 30px 0 18px;
-  padding-bottom: 6px;
-  font-size: 16px;
-  border-bottom: 2px solid #2f6f3e;
-  letter-spacing: 1px;
-  color: #2f6f3e;
-}
-
-/* ================= TIMELINE ================= */
-.timeline {
   position: relative;
+  margin-bottom: 16px;
+  padding-bottom: 9px;
+  font-size: 15px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--green-700);
+  border-bottom: 2px solid var(--line);
 }
-
-.timeline::before {
+.section-title::after {
   content: "";
   position: absolute;
-  left: 30%;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background: #3f8f55;
+  left: 0; bottom: -2px;
+  width: 54px; height: 2px;
+  background: var(--accent);
 }
 
-.timeline-item {
-  display: grid;
-  grid-template-columns: 30% 70%;
-  margin-bottom: 40px;
+.summary { font-size: 13.5px; color: #3d444b; }
+
+/* ---- generic bullet list ---- */
+.blist { list-style: none; }
+.blist li {
   position: relative;
+  padding-left: 18px;
+  margin-bottom: 7px;
+  font-size: 13px;
+  color: #3d444b;
 }
-
-.timeline-item::before {
+.blist li::before {
   content: "";
   position: absolute;
-  left: calc(30% - 6px);
-  top: 5px;
-  width: 12px;
-  height: 12px;
-  background: #2f6f3e;
+  left: 2px; top: 8px;
+  width: 6px; height: 6px;
   border-radius: 50%;
+  background: var(--accent);
+}
+.blist li b { color: var(--green-700); font-weight: 700; }
+
+/* ---- experience entry ---- */
+.entry { margin-bottom: 20px; }
+.entry:last-child { margin-bottom: 0; }
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.entry-title { font-size: 15px; font-weight: 700; color: var(--green-900); }
+.entry-date { font-size: 12px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.entry-meta { margin: 3px 0 8px; font-size: 13px; font-weight: 600; color: var(--green-600); }
+.entry .blist li { margin-bottom: 5px; }
+
+/* ---- references ---- */
+.refs { list-style: none; }
+.refs li { margin-bottom: 9px; font-size: 13px; color: #3d444b; }
+.refs b { color: var(--green-900); }
+.refs span { color: var(--muted); }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 720px) {
+  body { padding: 16px 10px 40px; }
+  .header { flex-direction: column-reverse; text-align: center; gap: 20px; padding: 32px 24px; }
+  .header-meta .sep { display: inline-block; }
+  .main { padding: 26px 22px 36px; }
+  .entry-head { flex-direction: column; gap: 2px; }
+  .download-btn { top: auto; bottom: 18px; right: 18px; }
 }
 
-.timeline-left {
-  padding-right: 15px;
-}
-
-.timeline-left h4 {
-  color: #2f6f3e;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.timeline-left p {
-  font-size: 12px;
-  color: #555;
-}
-
-.timeline-right {
-  padding-left: 25px;
-}
-
-.timeline-right h4 {
-  font-size: 14px;
-  color: #2f6f3e;
-  margin-bottom: 6px;
-}
-
-.timeline-right ul {
-  padding-left: 16px;
-}
-
-.timeline-right li {
-  font-size: 13px;
-  margin-bottom: 5px;
-}
-
-/* ================= PRINT SETTINGS ================= */
-@page {
-  size: A4;
-  margin: 0;
-}
+/* ================= PRINT ================= */
+@page { size: A4; margin: 0; }
 
 @media print {
-  body {
-    background: none;
-  }
-
-  .download-btn {
-    display: none;
-  }
-
-  .resume {
-    margin: 0;
-    box-shadow: none;
-  }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  html, body { background: #fff; padding: 0; margin: 0; }
+  .download-btn { display: none; }
+  .resume { max-width: none; width: auto; margin: 0; border-radius: 0; box-shadow: none; }
+  .section, .entry { break-inside: avoid; }
+  .section-title { break-after: avoid; }
 }
-
-.skills-language-container {
-  width: 100%;          /* Adjust width as needed */
-  height: 5px;
-  background-color: #6aa84f;  /* Light green background */
-  border-radius: 0px;
-  overflow: hidden;
-}
-
-.skills-progress-bar {
-  width: 100%;            /* Change percentage here */
-  height: 100%;
-  background-color:  #91df70;  /* Lighter inner bar */
-}
-
-.filipino-language-container {
-  width: 200px;          /* Adjust width as needed */
-  height: 5px;
-  background-color: #6aa84f;  /* Light green background */
-  border-radius: 0px;
-  overflow: hidden;
-}
-
-.filipino-progress-bar {
-  width: 100%;            /* Change percentage here */
-  height: 100%;
-  background-color:  #91df70;  /* Lighter inner bar */
-}
-
-
-.english-language-container {
-  width: 200px;          /* Adjust width as needed */
-  height: 5px;
-  background-color: #6aa84f;   /* Light green background */
-  border-radius: 0px;
-  overflow: hidden;
-}
-
-.english-progress-bar {
-  width: 95%;            /* Change percentage here */
-  height: 100%;
-  background-color: #91df70;  /* Lighter inner bar */
-}
-
-
-.arabic-language-container {
-  width: 200px;          /* Adjust width as needed */
-  height: 5px;
-  background-color: #6aa84f;  /* Light green background */
-  border-radius: 0px;
-  overflow: hidden;
-}
-
-.arabic-progress-bar {
-  width: 50%;            /* Change percentage here */
-  height: 100%;
-  background-color: #91df70;  /* Lighter inner bar */
-}
-
-.list-style-type{
-  list-style-type: none;
-}
-
-.border-bottom{
-  border: 2px solid gray; margin-right: -14.30%;
-}
-
 </style>
 </head>
 
@@ -282,953 +209,206 @@ body {
 
 <div class="resume">
 
-<!-- ===== SIDEBAR ===== -->
-<aside class="sidebar">
-
-<img src="profile.jpg" alt="Profile Photo" class="profile-photo">
-
-<h3>About Me</h3>
-<p>I am Mark Herren Diaz Nuega,
-age 41, Electronics and Electrical
-Technician since year 2009 (16
-years on Technical In-House &
-Field Service).</p>
-
-<p>Always willing to take initiative
-with responsibility on all my duty
-and schedules with all my
-dedication and hardworks ready
-at all times.</p>
-<p>Always wanted myself to take
-challenges resolving issues and
-problem usually a company is
-facing difficulties and see the
-maximum ability and potential I
-have in myself as an active
-worker and leader to any group
-that I may become a part or to
-lead.</p>
-<p>I have a lot of experiences gained
-thru difficulties and failure to
-success that is ready to be used
-for the benefits of many.</p>
-<p>My dream is not just for myself but
-for everyone I am with and I am
-caring for.</p>
-<p>Always aiming high whether it is
-thru the hardship or challenges
-and difficulties, knowing that after
-going over to this kind of
-experience I will learn and correct
-faults and mistakes in my next
-step...</p>
-<p>Also had a lot of experience from
-laboring to supervisory level,
-therefore I knew the actual
-scenario on the field where most
-worker should be knowledgeable
-and skilled to do their task on time
-and on a high standard of service.</p>
-<p style="text-align: end;">resumeRev.1MN-198</p>
-
-<div class="border-bottom"></div>
-
-
-<h3>Personal Details</h3>
-<ul>
-<li>Date of Birth: 09/29/1984</li>
-<li>Nationality: Filipino</li>
-<li>Marital Status: Married</li>
-<li>Visa Status: Approved</li>
-</ul>
-
-<h3>Languages</h3>
-<ul>
-<li>Filipino<div class="filipino-language-container">
-  <div class="filipino-progress-bar"></div>
-</div></li>
-  
-<li>English<div class="english-language-container">
-  <div class="english-progress-bar"></div>
-</div></li>
-<li>Arabic<div class="arabic-language-container">
-  <div class="arabic-progress-bar"></div>
-</div>
-</li>
-</ul>
-
-<p><div class="border-bottom"></div></p>
-
-<h3>ID'S AND CARDS</h3>
-<ul>
-
-<li>PASSPORT:</li>
-<li class="list-style-type">NOV 2020 - NOV 2030</li>
-<li class="list-style-type">#: *****491B
-
-  <li>IQAMA:</li>
-<li class="list-style-type">#: *****3348 (Transferrable)
-</li>
-
-<li>SOCIAL SECURITY SYSTEM</li>
-<li class="list-style-type">#: *****6850
-</li>
-
-<li>PHILHEALTH</li>
-<li class="list-style-type">#: *****8350
-
-</li>
-
-<li>TAX IDENTIFICATION NUMBER</li>
-<li class="list-style-type">#: *****2612
-</li>
-</li>
-</ul>
-<p><div class="border-bottom" class="border-bottom"></div></p>
-
-<h3>REFERENCES</h3>
-<ul>
-<li class="list-style-type">ARNEL COSTUDIO TECHNICAL SUPERVISOR</li>
-<li class="list-style-type">COD-City Of Dreams Manila Security And Surveillance Technology.</li>
-<li class="list-style-type">TEL: +63 906-208-7173</li>
-<li class="list-style-type">MARVIE A. CARIG</li>
-<li class="list-style-type">REGIONAL MANAGER JVC PHILIPPINES INCORPORATED (JPL)</li>
-<li class="list-style-type">TEL: (044) 600-4484</li>
-<li class="list-style-type">SAMUEL R. MANGOSING TESDA PROFESSOR</li>
-<li class="list-style-type">TESDA Palayan City TrainingCenter</li>
-<li class="list-style-type">TEL: (044) 958-1808</li>
-</li>
-</aside>
-
-<!-- ===== MAIN CONTENT ===== -->
-<main class="main">
-
-<div class="name">
-MARK HERREN<br>NUEGA
-</div>
-
-<div class="licenses">
-PHILIPPINES – ELECTRICAL LICENSE#: CLN-NQ-5146092<br>
-PHILIPPINES – ELECTRONICS LICENSE#: CLN-COC-129204
-</div>
-
-<div class="contact">
-<p>&#128205; Makkah – Jeddah Highway, Saudi Arabia</p>
-<p>&#9742; +966 51-0048-198</p>
-<p>&#9993; marknuega@gmail.com</p>
-</div>
-
-<h2 class="section-title">Work Experience</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>MOTECO – Modern Technology Company</h4>
-    <p>Mecca, Saudi Arabia</p>
-    <p>Apr 2021 – Present</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Electronics & Electrical Sr. Technician</h4>
-    <ul>
-      <li>Team leader, handle and deliver the team and daily progress reports on time and daily basis.
-</li>
-      <li> Find-out the best strategy for daily task and activities troubleshooting and commissioning.</li>
-      <li> Coordinate with Engineers for smooth team operations and error less scenario.</li>
-      <li> Provide solution for every encountered difficulties at respective due dates and deadlines.</li>
-      <li>Special duty for CM - Corrective Maintenance.</li>
-    <ol>
-      <li>Airbus TH1N, TH9, TMR880i</li>
-      <li>Sepura STP9000, SRG3900</li>
-      <li> ATyS d M 160A Automatic Transfer Switch.</li>
-      <li>Cassidian Sound Arbitration Module -SAM</li>
-      <li>Telco Tower Boards.</li>
-      <li> DST4400 Controller.</li>
-      <!-- for DSE charger must include DSE Model number. -->
-      <li>DSE 12/24v Chargers .</li>
-      <li>Cassidian Sound Arbitration Module -SAM</li>
-      <li>Volvo Generator MCU/ECU.</li>
-      <li>Signal Repeaters/Booster</li>
-    </ol>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>ICAD-INNOVATIVE CONTRACTORS AND ADVANCED DIMENSIONS.</h4>
-    <p>JEDDAH OFFICES. . P.O. Box No-117188, Jeddah 21391. Kingdom Of Saudi Arabia. Phone: +966 12 616 6771</p>
-    <p>Dec 2019 – Apr 2021</p>
-  </div>
-  <div class="timeline-right">
-    <!-- @ must use html entity. -->
-    <h4>ELV - Site Supervisor @ Site 1: KAIA -King Abdullaziz
-International Airport Project, Site 2: Tabuk-Umluj Turtle
-Island Hassan Project.</h4>
-    <ul>
-      <li> Lead, handle and deliver the team and its daily progress and activity reports.</li>
-      <li>Find-out the best strategy for daily task and activities troubleshooting and commissioning.</li>
-      <li>Work with Engineers for the creation of effective and faster solution and planning from drawing to markups to installation and commissioning of security and surveillance devices.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>ING-INTEGRATED
-NETWORK'S
-GROUP.</h4>
-    <p>Sara’a Hera Street
-Construction City
-Jeddah, KSA</p>
-    <p>Jun 2016 - Jun 2019</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Electronics and Electrical Head Technician</h4>
-    <ul>
-      <li>Site Survey/Installation and configurations of Security Access Control, Time Attendance, CCTV, Panasonic, PABX Systems, PA Systems, Hotel locks, Wi-fi Access points, Nano Stations...</li>
-      <li>Commisioning of projects and turnover.</li>
-      <li>In-House and Field Technician</li>
-      <li>R&D for special project as per the new design and plan request by clients.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>COD-CITY OF DREAMS MANILA, PHILIPPINES</h4>
-    <p>Aseana Cor. Roxas Boulevard, Barangay Tambo District 1, Paranaque City 1701</p>
-    <p>May 2014 - Dec 2015</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Casino Leisure and Resorts Security and Surveillance Technician</h4>
-    <ul>
-      <li>Install and deploy new CCTV/SAC/Tetra and other electronicequipment.</li>
-      <li>Installation of electronic cabling systems; primarily coaxial, data and power cables throughout complex.</li>
-      <li>Dallmeier Surveillance System.</li>
-      <li>Gallagher Security system.</li>
-      <li>Installation and termination of above to a high standard .</li>
-      <li>Motorola Tetra Radio MTP3550.</li>
-      <li>Apply appropriate testing to newly installed equipment to ensure sound functionality.</li>
-      <li>Conduct scheduled preventative maintenance to all CCTV/SAC equipment used to support Security, Surveillance, PAGCOR, Police and Gaming operations.</li>
-      <li>Ensure workshop stock and inventory levels are appropriately maintained and managed.</li>
-      <li> Maintain cost effective use of stock and inventory.Dallmeier Surveillance System.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>ROVER SYSTEM FAIRE TECHNOLOGIES INCORPORATED.</h4>
-    <p>#49 E- Fernandez Street San Juan, Metro Manila</p>
-    <p>May 2011 - May 2013</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Security and Surveillance QC/Technician</h4>
-    <ul>
-      <li>Team leader, handle and deliver the team and daily progress reports on time and daily basis.
-</li>
-      <li> Electronics Technician:</li>
-      <p><li class="list-style-type">Repair DVR/NVR, IP or NON-IP Camera, Computer Peripherals recorder with problem from Board to component level, Provide support for field technician to configure the items like access security system.</li></p>
-      <li>Quality Control:</li>
-      <li class="list-style-type">Check all equipment 100% functional and in good condition by physical and actual testing with burn-in testing of unit if required, R&D items with request from directors for further study about the new or sample product. Fill-up form for RTS (Return to supplier) if items found defective upon arrival.</li>
-      <li>L&D personnel:</li>
-      <li class="list-style-type">Fill-up lost and damage reports, STR (Service Technical Report) and PADF (Product Assembly/Disassemble form) request to refurbish items with lost accessories or damage part need for replacement.</li>
-     
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>MCDC-MONOLITH CONSTRUCTION AND DEVELOPMENT CORPORATION</h4>
-    <p>7/F, China Bank Building, 8745 Paseo De Roxas, Makati City NCR, Philippines</p>
-    <p>Feb 2011 - May 2011</p>
-  </div>
-  <div class="timeline-right">
-    <h4>High Rise Tower Building Electrician</h4>
-    <ul>
-      <li>Electrician</li>
-      <li class="list-style-type">Area covered, High Rise Tower Building with 48 floors and with typical electrical wiring, Installation of all electrical wiring for panels, home run for lightings, outlets, emergency lights, and aircon units.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>NHGL-NAGKAISANG HARANISTA SA GITNANG LUZON INC.</h4>
-    <p>Singalat Palayan City, Nueva Ecija</p>
-    <p>Aug 2009 - Nov 2010</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Electronics Technician</h4>
-    <ul>
-      <li>Maintenance of various equipment like -Computer System, Amplifiers, Audio console, Monitors, Etc...</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>ELJMC-EDUARDO L. JOSON MEMORIAL COLLEGE (DORMITORY .BLDG. C)</h4>
-    <p>Singalat Palayan City, Nueva Ecija</p>
-    <p>Mar 2004 - Oct 2004</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Building Electrician</h4>
-    <ul>
-      <li>Area Covered Building “A” 2floors with 32units, Installation of all electrical wirings for Panels, lightings, outlets, emergency lights, Chandelier, Air-con unit’s home run.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>NUEVA ECIJA NEW CAPITOL</h4>
-    <p>Singalat Palayan City, Nueva Ecija</p>
-    <p>Jun 2000 - Dec 2000</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Building Electrician</h4>
-    <ul>
-      <li>Chipping wall, carry and bring different electrical equipment or materials need to be installed.</li>
-    </ul>
-  </div>
-</div>
-</div>
-
-<h2 class="section-title">EXTRA-CURRICULAR ACTIVITIES</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>DIVERSIFIED CORPORATION</h4>
-    <p>City Of Mandaluyong Philippines</p>
-    <p>Feb 2016</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Seminar</h4>
-    <ul>
-      <li>Behavioral and Work Ethics</li>
-    </ul>
-  </div>
-</div>
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>JVC PHILIPPINES INCORPORATED </h4>
-    <p>168 Arnaiz Avenue, Makati City</p>
-    <p>Nov 2008</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Seminar</h4>
-    <ul>
-      <li>Service performance data (incoming, repaired and backlog units including TAT for shop service).</li>
-      <li>Service problem encounter and concerns</li>
-      <li>Counter measure that needs to apply and implement</li>
-      <li>Reducing fix expense and backlogs.</li>
-    </ul>
-  </div>
-  </div>
-  </div>
-
-<h2 class="section-title">LICENSE/S</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Palayan City, Nueva Ecija -Philippines</p>
-    <p>Dec 2019 - Dec 2024</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Electrical Installation and Maintenance NC-II</h4>
-    <ul>
-      <li>License No. CLN-NQ-5146092</li>
-    </ul>
-  </div>
-</div>
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Palayan City, Nueva Ecija -Philippines</p>
-    <p>Nov 2019 - Nov 2024</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Electronics Product Assembly and Servicing NC-II</h4>
-    <ul>
-      <li>License No. CLN-COC-129204</li>
-    </ul>
-  </div>
-</div>
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Palayan City, Nueva Ecija -Philippines</p>
-    <p>Jun 2019 - Jun 2024</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Massage Therapy NC-II</h4>
-    <ul>
-      <li>License No. CLN-NQ-3664664</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Palayan City, Nueva Ecija -Philippines</p>
-    <p>Oct 2019 - Sep 2024</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Professional Driver’s license: Philippines</h4>
-    <ul>
-      <li>License No: N01-13-004072</li>
-      <li class="list-style-type">Restrictions# 1 and 2</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Makkah Al
-Mukarramah 22889 &#45;
-Saudi Arabia</p>
-    <p>Valid until: Sept. 2028</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Saudi Professional Driver’s license</h4>
-    <ul>
-      <li>Professional Driver’s license:</li>
-      <li class="list-style-type">SN: 04004111789496</li>
-      <li class="list-style-type">Restrictions #: 0</li>
-      <li class="list-style-type">Category: Private</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Makkah Al
-Mukarramah 22889 &#45;
-Saudi Arabia</p>
-    <p>Valid until: Sept. 2034</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Saudi Professional Driver’s license</h4>
-    <ul>
-      <li>Professional Driver’s license:</li>
-      <li class="list-style-type">SN: 04004518804713</li>
-      <li class="list-style-type">Restrictions #: 0</li>
-      <li class="list-style-type">Category: Motorcycle</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Palayan City, Nueva Ecija -Philippines</p>
-    <p>Nov 2017 - Nov 2022</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Electronics Devices Assistant Level 1</h4>
-    <ul>
-      <li>International Certification </li>
-      <li class="list-style-type">Cert. No. RI/EEE/217-11-15/001/1014</li>
-    </ul>
-  </div>
-</div>
-
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Palayan City, Nueva Ecija -Philippines</p>
-    <p>Nov 2017 - Nov 2018</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Associate Member of Royal Institute of Electronics Engineers (AMRIEEE)</h4>
-    <ul>
-      <li>International Certification </li>
-      <li class="list-style-type">Member ID No. 047-27656</li>
-    </ul>
-  </div>
-</div>
-
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Palayan City, Nueva Ecija -Philippines</p>
-    <p>Oct 2009 - Oct 2014</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Consumer Electronics Servicing NC-II
-</h4>
-    <ul>
-      <li>National Certification </li>
-      <li class="list-style-type">License No. CLN-NQ-476595
-</li>
-    </ul>
-</div>
-</div>
-</div>
-
-
-<h2 class="section-title">TEACHING-TECHNICAL SCHOOL</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p>Innovative Technical Enhancement & Skills Training (ITEST)</p>
-    <p>Jeddah KSA</p>
-    <p>Feb 2020 - Oct 2022</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Technical Instructor</h4>
-    <ul>
-      <li>Security and Surveillance System - HikVision & Longse</li>
-      <li>Access Control System - ZKTeco , Commax...</li>
-      <li>Solar Module Installation and Maintenance</li>
-      <li>Computer and Hardware Assembly and Maintenance.</li>
-      <li>Cellphone Repair Servicing.</li>
-      <li>Basic Home Automation System.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p> Filipino Computer And Literacy (FILCOM)</p>
-    <p>Jeddah KSA</p>
-    <p>Oct 2016 - Dec 2019</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Technical Instructor</h4>
-    <ul>
-      <li>Surveillance Technology Installation and Maintenance.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p> Filipino Computer And Literacy (FILCOM)</p>
-    <p>Jeddah KSA</p>
-    <p>Oct 2016 - Dec 2019</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Technical Instructor</h4>
-    <ul>
-      <li>Security Access Control Technology Installation and Maintenance..</li>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p> Filipino Computer And Literacy (FILCOM)</p>
-    <p>Jeddah KSA</p>
-    <p>Oct 2016 - Dec 2019</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Technical Instructor</h4>
-    <ul>
-      <li>Computer System Assembly & Installation.</li>
-    </ul>
-  </div>
-  </div>
-
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <p> Filipino Computer And Literacy (FILCOM)</p>
-    <p>Jeddah KSA</p>
-    <p>Oct 2016 - Dec 2019</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Technical Instructor</h4>
-    <ul>
-      <li>Solar Energy Module Assembly Installation and Maintenance.</li>
-    </ul>
-</div>
-</div>
-</div>
-
-
-<h2 class="section-title">ADD-ONS</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-  <div class="timeline-left">
- 
-<p>Oct 2009 - Nov 2023</p>
-  </div>
-  <div class="timeline-right">
-    <h4>System & Devices</h4>
-    <ol>
-      <li>Airbus Tetra Radio-TH1N, TH9, TMR880i...</li>
-      <li>Sepura Tetra Radio-STP9000, SRG3900...</li>
-      <li>Hytera Tetra Radio-PT580H, PT590...</li>
-      <li>ATyS d M 160A Automatic Transfer Switch.</li>
-      <li>Cassidian Sound Arbitration Module -SAM.</li>
-      <li>Telco Tower Boards.</li>
-      <li>DSE 12/24v Chargers.</li>
-      <li>DST Generator Controller.</li>
-      <li>Cisco Server Router and Switches.</li>
-      <li>Volvo Generator MCU/ECU.</li>
-      <li>Dallmeier Surveillance System.</li>
-      <li>Pelco & Samsung Surveillance System.</li>
-      <li>Matrix Surveillance System.</li>
-      <li>Gallagher Security system.</li>
-      <li>Honeywell Fire Alarm System.</li>
-      <li>Honeywell PA/VA System.</li>
-      <li>Motorola Tetra Radio MTP3550.</li>
-      <li>Fiber Optics Telecom OSP-FIBER.</li>
-      <li>Biometrics Time Attendance.</li>
-      <li>Panasonic PABX System.</li>
-      <li>Wi-Fi and Access Points.</li>
-      <li>Laptop and Desktop Computers.</li>
-      <li>ZKTeco Hotel Door Locks.</li>
-      <li>Unifi Nano Station P2P, P2MP.</li>
-      <li>Printers, Fax and Scanners.</li>
-      <li>Electrical and Solar Modules.</li>
-      <li>Basic Tapo Home Automation.</li>
-    </ol>
-  </div>
-</div>
-</div>
-
-<h2 class="section-title">EDUCATION</h2>
-
-<div class="timeline">
-
-  <div class="timeline-item">
-  <div class="timeline-left">
-    <h4>SuperSimple.Dev</h4>
-    <p>Kingdom Of Saudi Arabia</p>
-    <p>Feb. 2, 2026</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Online Course Certification</h4>
-    <ul>
-      <li>HTML & CSS Full Course</li>
-      <li class="list-style-type">Cert. hzyqinhmpi</li>
-       <a href="https://courses.supersimple.dev/certificates/hzyqinhmpi" target="_blank">Certificate</a>
-    </ul>
-  </div>
-</div>
-
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>UDEMY</h4>
-    <p>Kingdom Of Saudi Arabia</p>
-    <p>Aug. 3, 2024</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Online Course Certification</h4>
-    <ul>
-      <li>The Complete 2024 Web Development Bootcamp</li>
-      <li class="list-style-type">Cert. No.UC-7d2bdea7-e8fa-4a35-8528-861af39d560c</li></li>
-      <a href="https://www.udemy.com/certificate/UC-7d2bdea7-e8fa-4a35-8528-861af39d560c/" target="_blank">Certificate</a>
-    </ul>
-  </div>
-</div>
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>NNOVATIVE TECHNICAL ENHANCEMENT & SKILLS TRAINING CENTER (ITEST)</h4>
-    <p>Al-Salamah, Jeddah 23524</p>
-    <p>2021</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li>Telecom OSP-Installation - Fiber Optic Cable - Tertiary School</li>
-    </ul>
-  </div>
-</div>
-
-
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>NNOVATIVE TECHNICAL ENHANCEMENT & SKILLS TRAINING CENTER (ITEST)</h4>
-    <p>Al-Salamah, Jeddah 23524</p>
-    <p>2019</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li>Information Technology Training Program (ITTP) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-  
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>JEDDAH KSA FILIPINO COMPUTER AND LITERACY (FILCOM)</h4>
-    <p>Jeddah Mishrifah 2590</p>
-    <p>2019</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li>Massage Theraphy I & II (Cert. No. FCLP-B32-0036) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-   
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>JEDDAH KSA FILIPINO COMPUTER AND LITERACY (FILCOM)</h4>
-    <p>Jeddah Mishrifah 2590</p>
-    <p>2019</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li> Bread and Pastry Production (Cert. No. FCLP-B32-0097) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-  
-   
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>JEDDAH KSA FILIPINO COMPUTER AND LITERACY (FILCOM)</h4>
-    <p>Jeddah Mishrifah 2590</p>
-    <p>2018</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li>Cisco CCNA Ver3 (Cert. No. FCLP-B27-00122) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-   
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>JEDDAH KSA FILIPINO COMPUTER AND LITERACY (FILCOM)</h4>
-    <p>Jeddah Mishrifah 2590</p>
-    <p>2018</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li> Photograpy Essentials Skills (Cert. No. FCLP-B26-00101) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-     
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>JEDDAH KSA FILIPINO COMPUTER AND LITERACY (FILCOM)</h4>
-    <p>Jeddah Mishrifah 2590</p>
-    <p>2018</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li> Solar Energy –Module Assembly (Cert. No. FCLP-B26-0084) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-     
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>JEDDAH KSA FILIPINO COMPUTER AND LITERACY (FILCOM)</h4>
-    <p>Jeddah Mishrifah 2590</p>
-    <p>2017</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li> Programmable Logic Controller -PLC (Cert. No. FCLP-B2500113) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-     
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>JEDDAH KSA FILIPINO COMPUTER AND LITERACY (FILCOM)</h4>
-    <p>Jeddah Mishrifah 2590</p>
-    <p>2017</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li> Orthographic Drawing and Geometry Basic (Cert. No. FCLPB24-00165) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-     
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>DIVERSIFIED CORPORATION</h4>
-    <p>Diversified Corporation Building, City Of Mandaluyong Philippines</p>
-    <p>2016</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li> Japanese Language Course, Work Ethics and Cross Culture (Cert. No. DC-JLC-164110071-0218) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-     
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>PCIT-PALAYAN CITY INSTITUTE OF TECHNOLOGY</h4>
-    <p>Palayan City, Nueva Ecija</p>
-    <p>2011</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li> Computer Hardware Servicing-II (Cert. No. ICT-10031-11157) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-     
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>TECHNICAL EDUCATION AND SKILLS DEVELOPMENT AUTHORITY (TESDA)</h4>
-    <p>Palayan City, Nueva Ecija</p>
-    <p>2002</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li>Building Wiring Installation (Cert. No. 01-0204-NE) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-      
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>TECHNICAL EDUCATION AND SKILLS DEVELOPMENT AUTHORITY (TESDA)</h4>
-    <p>Palayan City, Nueva Ecija</p>
-    <p>2001</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li>Welding (Cert. No. 01-4215-NE)  - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-      
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>TECHNICAL EDUCATION AND SKILLS DEVELOPMENT AUTHORITY (TESDA)</h4>
-    <p>Palayan City, Nueva Ecija</p>
-    <p>2001</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li>TV Servicing (Cert. No. 01-2363-NE) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-      
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>TECHNICAL EDUCATION AND SKILLS DEVELOPMENT AUTHORITY (TESDA)</h4>
-    <p>Palayan City, Nueva Ecija</p>
-    <p>2001</p>
-  </div>
-  <div class="timeline-right">
-    <h4>National Certificate</h4>
-    <ul>
-      <li>Consumer Electronics Servicing (Cert. No. 01-0850-NE) - Tertiary School</li>
-    </ul>
-  </div>
-  </div>
-
-      
-<div class="timeline-item">
-  <div class="timeline-left">
-    <h4>PALAYAN CITY HIGH SCHOOL (PCHS)</h4>
-    <p>Palayan City, Nueva Ecija</p>
-    <p>2000</p>
-  </div>
-  <div class="timeline-right">
-    <h4>High School Certificate</h4>
-    <ul>
-      <li>Secondary School - Graduate</li>
-    </ul>
-  </div>
-  </div>
-
-
-
-  <div class="timeline-item">
-  <div class="timeline-left">
-    <h4>PALAYAN CITY HIGH SCHOOL (PCHS)</h4>
-    <p>Palayan City, Nueva Ecija</p>
-    <p>1996</p>
-  </div>
-  <div class="timeline-right">
-    <h4>Elementary School Certificate</h4>
-    <ul>
-      <li> Primary School - Graduate</li>
-    </ul>
-  </div>
-  </div>
-  </div>
-
-<h2 class="section-title">SKILLS</h2>
-<ul>
-<li>ELECTRONICS - #1. KNOWS HOW TO INTERPRET TECHNICAL DRAWINGS AND SYMBOLS SPECIALLY BLOCK AND SCHEMATIC DIAGRAMS. #2 ABLE TO USE OHM'S LAW TO CALCULATE THE RELATIONSHIP BETWEEN VOLTAGE, CURRENT AND RESISTANCE IN AN ELECTRICAL CIRCUIT.<div class="skills-language-container">
-  <div class="skills-progress-bar"></div>
-</div></li>
-<br>
-<li>ELECTRICAL - #1. KNOWS HOW TO INTERPRET TECHNICAL DRAWING AND SYMBOLS ESPECIALLY ELECTRICAL PLAN. #2 ABLE TO USE OHM’S LAW TRIANGLE TO REMEMBER THE DIFFERENT EQUATIONS TO SOLVE FOR DIFFERENT VARIABLES((V, I, R)W).<div class="skills-language-container">
-  <div class="skills-progress-bar"></div>
-</div></li>
-<br>
-<li>WELDING (SMAW) - KNOWS BASIC WELDING TECHNIQUES.<div class="skills-language-container">
-  <div class="skills-progress-bar"></div>
-</div></li>
-<br>
-<li>COMPUTER SERVICING - #1. KNOWS HOW TO REPAIR COMPUTER HARDWARE PROBLEMS, INCLUDING RE-FORMATTING, INSTALLATIONS OF SOFTWARE AND NETWORK CONNECTIONS.
-  #2. ABLE TO USE DIFFERENT APPLICATIONS LIKE: MS OFFICE, AUTOCAD, VSCODE...<div class="skills-language-container">
-  <div class="skills-progress-bar"></div>
-</div></li>
-<br>
-  <li>DRIVING (RESTRICTION NO. 1&2) - KNOWSHOW TO DRIVE 2 OR 4 WHEELS AUTOMATIC/MANUAL VEHICLE.<div class="skills-language-container">
-  <div class="skills-progress-bar"></div>
-</div></li>
-<br>
-<li>LIFT OPERATOR - GENIE LIFT SERIES-GR-20, GS-1930, TZ-34/20.<div class="skills-language-container">
-  <div class="skills-progress-bar"></div>
-</div></li>
-<br>
-<ul>
-</ul>
-
-
-
-
-</div>
-</main>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-text">
+      <div class="name">MARK HERREN D. NUEGA</div>
+      <div class="role">Senior Electronics &amp; Electrical Technician &nbsp;|&nbsp; ELV / Security &amp; Surveillance Specialist</div>
+      <div class="header-meta">
+        Makkah&ndash;Jeddah Highway, Saudi Arabia<span class="sep">&bull;</span>+966 51-0048-198<span class="sep">&bull;</span><a href="mailto:marknuega@gmail.com">marknuega@gmail.com</a><br>
+        PH Electrical License CLN-NQ-5146092<span class="sep">&bull;</span>PH Electronics License CLN-COC-129204<span class="sep">&bull;</span>Transferable IQAMA
+      </div>
+    </div>
+    <img src="profile.jpg" alt="Mark Herren D. Nuega" class="profile-photo">
+  </header>
+
+  <!-- ===== BODY ===== -->
+  <main class="main">
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section class="section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary">Electronics &amp; Electrical technician with 16+ years of in-house and field service experience across Saudi Arabia and the Philippines. Team lead on TETRA radio, CCTV, access control, fire alarm, PA/VA, and generator/ATS systems for airports, telecom towers, and large resort/casino sites. Proven at commissioning, corrective maintenance, and coordinating multi-discipline crews to hit deadlines with zero rework.</p>
+    </section>
+
+    <!-- CORE SKILLS -->
+    <section class="section">
+      <h2 class="section-title">Core Skills</h2>
+      <ul class="blist">
+        <li><b>TETRA Radio Systems:</b> Airbus TH1N / TH9 / TMR880i, Sepura STP9000 / SRG3900, Hytera PT580H / PT590, Motorola MTP3550</li>
+        <li><b>Security &amp; Surveillance:</b> Dallmeier, Pelco, Samsung, Matrix, Gallagher, HikVision, Longse &mdash; install, commissioning, PM</li>
+        <li><b>ELV &amp; Life Safety:</b> Honeywell Fire Alarm, Honeywell PA/VA, ZKTeco / Commax access control, biometrics, hotel locks</li>
+        <li><b>Power &amp; Generators:</b> ATyS d M 160A ATS, DSE 12/24V chargers, DST4400 controller, Volvo generator MCU/ECU, solar modules</li>
+        <li><b>Network &amp; Telecom:</b> Cisco routers/switches, Panasonic PABX, Ubiquiti / Nano Station P2P &amp; P2MP, Wi-Fi APs, OSP fiber optics</li>
+        <li><b>Electrical:</b> Panel wiring, home-run for lighting/outlets/HVAC, high-rise building wiring, schematic &amp; plan reading</li>
+        <li><b>Tools &amp; Software:</b> MS Office, AutoCAD, VS Code, HTML/CSS, basic web development</li>
+        <li><b>Equipment:</b> Genie lift GR-20, GS-1930, TZ-34/20</li>
+        <li><b>Languages:</b> Filipino (native), English (fluent), Arabic (working)</li>
+      </ul>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <section class="section">
+      <h2 class="section-title">Professional Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Senior Electronics &amp; Electrical Technician</span>
+          <span class="entry-date">Apr 2021 &ndash; Present</span>
+        </div>
+        <div class="entry-meta">MOTECO &mdash; Modern Technology Company &bull; Mecca, Saudi Arabia</div>
+        <ul class="blist">
+          <li>Lead a field team on daily TETRA, ATS, generator, and telco-tower corrective maintenance across Makkah sites; deliver daily progress reports to engineering.</li>
+          <li>Plan the day's troubleshooting strategy and coordinate with engineers so tasks close within SLA with zero rework.</li>
+          <li>Specialist corrective maintenance on Airbus TH1N/TH9/TMR880i, Sepura STP9000/SRG3900, ATyS d M 160A ATS, Cassidian SAM, DSE 12/24V chargers, DST4400 controller, Volvo MCU/ECU, and signal repeaters/boosters.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">ELV Site Supervisor</span>
+          <span class="entry-date">Dec 2019 &ndash; Apr 2021</span>
+        </div>
+        <div class="entry-meta">ICAD &mdash; Innovative Contractors and Advanced Dimensions &bull; Jeddah, Saudi Arabia</div>
+        <ul class="blist">
+          <li>Supervised ELV crews at King Abdulaziz International Airport (KAIA) and the Tabuk&ndash;Umluj Turtle Island Hassan project.</li>
+          <li>Owned drawings-to-markups-to-commissioning workflow for security and surveillance devices, working directly with engineers to speed up delivery.</li>
+          <li>Produced daily activity and progress reporting for site management.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Head Electronics &amp; Electrical Technician</span>
+          <span class="entry-date">Jun 2016 &ndash; Jun 2019</span>
+        </div>
+        <div class="entry-meta">ING &mdash; Integrated Network's Group &bull; Jeddah, Saudi Arabia</div>
+        <ul class="blist">
+          <li>In-house and field lead for site survey, installation, configuration, and commissioning of security access control, time attendance, CCTV, Panasonic PABX, PA systems, hotel locks, Wi-Fi APs and Nano Stations.</li>
+          <li>Ran R&amp;D for bespoke client designs and handled project turnover.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Security &amp; Surveillance Technician</span>
+          <span class="entry-date">May 2014 &ndash; Dec 2015</span>
+        </div>
+        <div class="entry-meta">City of Dreams Manila (Casino, Leisure &amp; Resorts) &bull; Para&ntilde;aque City, Philippines</div>
+        <ul class="blist">
+          <li>Installed and commissioned CCTV, SAC, and Motorola TETRA MTP3550 radios across the resort; ran coax, data and power throughout the complex to high finish standard.</li>
+          <li>Operated and maintained Dallmeier surveillance and Gallagher security systems supporting Security, Surveillance, PAGCOR, Police and Gaming operations.</li>
+          <li>Ran preventive maintenance schedule and managed workshop stock and inventory cost-effectively.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Security &amp; Surveillance QC / Technician</span>
+          <span class="entry-date">May 2011 &ndash; May 2013</span>
+        </div>
+        <div class="entry-meta">Rover System Faire Technologies Inc. &bull; San Juan, Metro Manila, Philippines</div>
+        <ul class="blist">
+          <li>Team lead for bench repair of DVR/NVR, IP and analog cameras, and computer peripherals down to component level; supported field techs on access-control configuration.</li>
+          <li>QC on 100% of outgoing equipment with burn-in testing; handled RTS for arrival-defective stock and R&amp;D on new products.</li>
+          <li>Owned L&amp;D reports, STR service tickets, and PADF forms for refurbishment.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">High-Rise Building Electrician</span>
+          <span class="entry-date">Feb 2011 &ndash; May 2011</span>
+        </div>
+        <div class="entry-meta">MCDC &mdash; Monolith Construction and Development Corp. &bull; Makati City, Philippines</div>
+        <ul class="blist">
+          <li>Installed electrical wiring, panels, home runs for lighting, outlets, emergency lights and AC units across a 48-floor tower.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Electronics Technician</span>
+          <span class="entry-date">Aug 2009 &ndash; Nov 2010</span>
+        </div>
+        <div class="entry-meta">NHGL &mdash; Nagkaisang Haranista sa Gitnang Luzon Inc. &bull; Palayan City, Philippines</div>
+        <ul class="blist">
+          <li>Maintained computer systems, amplifiers, audio consoles and monitors for live performance and studio use.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TECHNICAL INSTRUCTION -->
+    <section class="section">
+      <h2 class="section-title">Technical Instruction</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Technical Instructor</span>
+          <span class="entry-date">Feb 2020 &ndash; Oct 2022</span>
+        </div>
+        <div class="entry-meta">Innovative Technical Enhancement &amp; Skills Training (ITEST) &bull; Jeddah, Saudi Arabia</div>
+        <ul class="blist">
+          <li>Taught HikVision/Longse surveillance, ZKTeco/Commax access control, solar module install &amp; maintenance, PC hardware, cellphone repair, and basic home automation.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Technical Instructor</span>
+          <span class="entry-date">Oct 2016 &ndash; Dec 2019</span>
+        </div>
+        <div class="entry-meta">Filipino Computer and Literacy (FILCOM) &bull; Jeddah, Saudi Arabia</div>
+        <ul class="blist">
+          <li>Delivered courses on surveillance systems, security access control, computer assembly, and solar energy module installation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- LICENSES & CERTIFICATIONS -->
+    <section class="section">
+      <h2 class="section-title">Licenses &amp; Certifications</h2>
+      <ul class="blist">
+        <li>TESDA Electrical Installation &amp; Maintenance NC-II &mdash; CLN-NQ-5146092</li>
+        <li>TESDA Electronics Product Assembly &amp; Servicing NC-II &mdash; CLN-COC-129204</li>
+        <li>TESDA Consumer Electronics Servicing NC-II &mdash; CLN-NQ-476595</li>
+        <li>TESDA Massage Therapy NC-II &mdash; CLN-NQ-3664664</li>
+        <li>Royal Institute of Electronics Engineers &mdash; Electronics Devices Assistant Level 1 (RI/EEE/217-11-15/001/1014); AMRIEEE Member 047-27656</li>
+        <li>Saudi Professional Driver's License &mdash; Private (valid to Sept 2028) &amp; Motorcycle (valid to Sept 2034)</li>
+        <li>Philippines Professional Driver's License N01-13-004072 (Restrictions 1 &amp; 2)</li>
+      </ul>
+    </section>
+
+    <!-- EDUCATION & TRAINING -->
+    <section class="section">
+      <h2 class="section-title">Education &amp; Training</h2>
+      <ul class="blist">
+        <li>SuperSimple.Dev &mdash; HTML &amp; CSS Full Course (Feb 2026)</li>
+        <li>Udemy &mdash; The Complete 2024 Web Development Bootcamp (Aug 2024)</li>
+        <li>ITEST Jeddah &mdash; Telecom OSP / Fiber Optic Cable Installation (2021)</li>
+        <li>ITEST Jeddah &mdash; Information Technology Training Program (2019)</li>
+        <li>FILCOM Jeddah &mdash; Cisco CCNA v3 (2018)</li>
+        <li>FILCOM Jeddah &mdash; Programmable Logic Controller / PLC (2017)</li>
+        <li>FILCOM Jeddah &mdash; Solar Energy Module Assembly (2018)</li>
+        <li>Diversified Corp. &mdash; Japanese Language, Work Ethics &amp; Cross-Culture (2016)</li>
+        <li>PCIT &mdash; Computer Hardware Servicing II (2011)</li>
+        <li>TESDA Palayan City &mdash; Building Wiring Installation, Welding, TV Servicing, Consumer Electronics Servicing (2001&ndash;2002)</li>
+        <li>Palayan City High School &mdash; Secondary Diploma (2000)</li>
+      </ul>
+    </section>
+
+    <!-- REFERENCES -->
+    <section class="section">
+      <h2 class="section-title">References</h2>
+      <ul class="refs">
+        <li><b>Arnel Costudio</b> &mdash; Technical Supervisor, City of Dreams Manila &mdash; Security &amp; Surveillance Technology <span>&bull; +63 906 208 7173</span></li>
+        <li><b>Marvie A. Carig</b> &mdash; Regional Manager, JVC Philippines Incorporated <span>&bull; (044) 600-4484</span></li>
+        <li><b>Samuel R. Mangosing</b> &mdash; TESDA Professor, Palayan City Training Center <span>&bull; (044) 958-1808</span></li>
+      </ul>
+    </section>
+
+  </main>
 </div>
 
 </body>
-
 </html>
-
